@@ -1,0 +1,54 @@
+version: "3.9"
+services:
+  rapid-sites-server:
+    container_name: rapid-sites-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    restart: unless-stopped
+    environment:
+      DB_USERNAME: ${MONGO_DB_USERNAME}
+      DB_PASSWORD: ${MONGO_DB_PASSWORD}
+    ports:
+      - "8080:8080"
+    networks:
+      - eody-sites-parser
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.9-management
+
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - eody-sites-parser
+
+
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:5
+
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: guest
+      MONGO_INITDB_ROOT_PASSWORD: guest
+      MONGO_INITDB_DATABASE: eody-sites
+
+    volumes:
+      - ./mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - mongo-volume
+
+    ports:
+      - "27017-27019:27017-27019"
+    networks:
+      - eody-sites-parser
+
+networks:
+  eody-sites-parser: {}
+
+volumes:
+  mongo-volume: {}
