@@ -19,7 +19,7 @@ public class TestSitesParseTask {
         this.siteParser = siteParser;
     }
 
-    @Scheduled(fixedRate = 43200000)
+    @Scheduled(fixedRate = 43200000, initialDelay = 60000)
     public void parseTestSites() {
         log.info("Starting eody rapid test sites parsing at " + Instant.now().toString());
         siteParser.parse();
