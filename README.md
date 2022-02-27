@@ -7,7 +7,7 @@
 - [Quick Start](#quick-start)
 - [API Documentation](#api-doc)
 
-##Introduction <a name="introduction"/>
+## Introduction <a name="introduction"/>
 This is a simple server collecting data from [Eody's Official Site](https://eody.gov.gr/komy-testing-eody/)
 In particular, Eody's site provides daily the sites conducting for free COVID-19 rapid tests. Those sites
 are collected from the server, translated with [Here's Geocoding API](https://developer.here.com/products/geocoding-and-search)
@@ -19,7 +19,7 @@ This is done in the single-page application developed [here](https://github.com/
 The motivation behind this was to provide an easy way for someone to view the nearest COVID-19 rapid test sites
 instead of having to scroll through the endless list provided by the official site.
 
-##Technologies Used <a name="tech-stack"/>
+## Technologies Used <a name="tech-stack"/>
 Technologies used:
 - Java 11
 - Spring WebFlux
@@ -29,7 +29,7 @@ Technologies used:
 - Lombok
 - Maven
 
-##Requirements <a name="requirements"/>
+## Requirements <a name="requirements"/>
 The application has the following requirements to be built/run:
 - Docker/Docker compose
 - Java 11
@@ -48,7 +48,7 @@ command.
 After this, you will have up-and-running the server, a mongodb instance and a rabbitmq instance.
 No further configuration is needed.
 
-##API Documentation requirements <a name="api-doc"/>
+## API Documentation requirements <a name="api-doc"/>
 **URL** : `http://<base_url>:8080/api/places`
 
 **Method** : `GET`
